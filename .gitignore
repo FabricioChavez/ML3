@@ -1,2 +1,6 @@
 train_subset_features/
 train_csv/
+test_subset_features/
+test_subset_features_sound/
+val_subset_features/
+val_subset_features_sound/
