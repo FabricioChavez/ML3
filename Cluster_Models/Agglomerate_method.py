@@ -250,21 +250,3 @@ class AgglomerativeMethod:
                 labels[index] = cluster_label
         self.labels = labels
 
-# Entrenar el modelo con los datos proporcionados y evaluar los resultados
-if __name__ == "__main__":
-    # Número de clusters deseados
-    n_clusters = len(np.unique(true_labels))
-
-    # Crear el modelo de Agglomerative Clustering
-    clustering = AgglomerativeMethod(data=data_mean, cluster_number=n_clusters, linkage_method='centroid')
-
-    # Ajustar el modelo y predecir las etiquetas
-    clustering.fit()
-    predicted_labels = clustering.labels
-
-    # Evaluar el rendimiento
-    ari = adjusted_rand_score(true_labels, predicted_labels)
-    nmi = normalized_mutual_info_score(true_labels, predicted_labels)
-
-    print("Adjusted Rand Index:", ari)
-    print("Mutual Info Index:", nmi)
