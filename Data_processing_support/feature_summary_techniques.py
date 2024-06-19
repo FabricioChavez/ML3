@@ -62,8 +62,15 @@ def summary_by_mean(data):
     return df
 
 
-def add_true_categories_to_data_frame(df):
-    categorical_labels = pd.read_csv("train.csv")
+def get_cluster_number(type_of_data):
+    file_name = type_of_data + '.csv'
+    categorical_labels = pd.read_csv(file_name)
+    unique_labels = np.unique(categorical_labels["label"])
+    return len(unique_labels)
+
+def add_true_categories_to_data_frame(df ,   type_of_data  ):
+    file_name = type_of_data +'.csv'
+    categorical_labels = pd.read_csv(file_name)
     categorical_labels.set_index("youtube_id")
     labels_dict = categorical_labels.set_index('youtube_id')['label'].to_dict()
 
